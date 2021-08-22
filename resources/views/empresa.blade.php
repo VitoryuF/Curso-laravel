@@ -4,6 +4,6 @@
 
 </head>
 <body>
-    <h1>Informações de contato!</h1>
+    <h1>Informações da empresa!</h1>
 </body>
 </html>
