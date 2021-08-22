@@ -54,8 +54,9 @@ Route::match(['get', 'post'], '/rota', function(){
 });
 
 
-/*04 - Rota onde é possível executar um parametro seguido de um subparametro odne este subparamentro é dinâmico, poderá ser inserido qualquer valor ou texto.
+/*04 - Rota onde é possível executar um parametro seguido de um subparametro onde este subparamentro é dinâmico, poderá ser inserido qualquer valor ou texto.
 O que poderia ser útil quando houve uma grande cadeia de subparametros
+AULA 11
 */
 Route::get('/categorias/{cat}', function($cat){
     return "Categoria escolhida {$cat}";
@@ -77,6 +78,10 @@ E caso não seja inserido um subparametro, podemos deixar um valor padrão, bast
  onde declaramos o subparametro e informar o valor default na function
  */
 Route::get('/categorias/{cat?}', function($cat = ' = CATEGORIA NÃO INFORMADA'){
+    return "Categoria escolhida {$cat}";
+});
+
+Route::get('/categorias/{cat?}/2', function($cat = ' = CATEGORIA NÃO INFORMADA'){
     return "Categoria escolhida {$cat}";
 });
 
@@ -110,4 +115,10 @@ Route::get('/redirect3', function(){
 
 Route::get('/new-url', function(){
     return 'New-Url';
-})->name('old-url1');
+})->name('old-urlddfdf1');
+
+
+
+Route::get('/admin/name1', function(){
+    return 'cliente 1';
+});
