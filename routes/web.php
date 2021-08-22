@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\RouteUrlGenerator;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,6 +120,55 @@ Route::get('/new-url', function(){
 
 
 
-Route::get('/admin/name1', function(){
-    return 'cliente 1';
+Route::get('/admin/login', function(){
+    return 'Login';
+})->name('login');
+
+
+
+Route::middleware([])->group(function (){
+
+    Route::prefix('admin')->group(function(){
+
+        Route::namespace('App\Http\Controllers\Admin')->group(function(){
+
+            Route::name('admin.')->group(function(){
+                Route::get('/2', 'TesteController@teste')->name('home');
+
+                Route::get('/name1', 'TesteController@teste')->name('name1');
+
+                Route::get('/name2', 'TesteController@teste')->name('name2');
+
+                Route::get('/name3', 'TesteController@teste')->name('name3');
+
+                Route::get('/', function(){
+                    return redirect()->route('name1');
+                })->name('home');
+
+            });
+
+        });
+
+
+
+        // Route::get('/', function(){
+        //     return 'HOME PAGE DASHBOARD';
+        // });
+
+        // Route::get('/name1', function(){
+        //     return 'Cliente 1';
+        // });
+
+        // Route::get('/name2', function(){
+        //     return 'Cliente 2';
+        // });
+
+        // Route::get('/name3', function(){
+        //     return 'Cliente 3';
+        // });
+
+
+
+    });
+
 });
