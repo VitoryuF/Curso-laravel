@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\RouteUrlGenerator;
+use PharIo\Version\GreaterThanOrEqualToVersionConstraint;
+use League\CommonMark\Extension\ExternalLink\ExternalLinkProcessor;
 
 /*
 |--------------------------------------------------------------------------
@@ -116,7 +118,7 @@ Route::get('/redirect3', function(){
 
 Route::get('/new-url', function(){
     return 'New-Url';
-})->name('old-urlddfdf1');
+})->name('old-url1');
 
 
 
@@ -125,15 +127,70 @@ Route::get('/admin/login', function(){
 })->name('login');
 
 
+// É POSSÍVEL EFETUAR CONJUNTO DE ROTAS COM A MESMA COM OS MESMOS PARAMETROS E COMPONENTES REUNIDOS POR GRUPO.
+/*
+METODOS LISTADOS AQUI SÃO O, MIDDLEWARE, PREFIX, NAMESPACE E NAME.
 
-Route::middleware([])->group(function (){
+O METODO MIDDLEWARE É NECESSÁRIO PARA AUTENTICAÇÃO, USANDO 'auth' E OUTRAS OPÇÕES
 
-    Route::prefix('admin')->group(function(){
+O PREFIX É USADO PARA REUNIR ROTAS COM METODOS COM AS MESMAS ESPECIFICAÇÕES NO METODO NAME ->name('admin.name1')
 
-        Route::namespace('App\Http\Controllers\Admin')->group(function(){
+O METODO NAMESPACE É USADO PARA LOCALIZAR FUNÇÕES E ARQUIVOS ExternalLinkProcessor
+*/
+// Route::middleware([])->group(function (){
 
-            Route::name('admin.')->group(function(){
-                Route::get('/2', 'TesteController@teste')->name('home');
+//     Route::prefix('admin')->group(function(){
+
+//         Route::namespace('App\Http\Controllers\Admin')->group(function(){
+
+//             Route::name('admin.')->group(function(){
+//                 Route::get('/2', 'TesteController@teste')->name('home');
+
+//                 Route::get('/name1', 'TesteController@teste')->name('name1');
+
+//                 Route::get('/name2', 'TesteController@teste')->name('name2');
+
+//                 Route::get('/name3', 'TesteController@teste')->name('name3');
+
+//                 Route::get('/', function(){
+//                     return redirect()->route('name1');
+//                 })->name('home');
+
+//             });
+
+//         });
+
+
+
+//         // Route::get('/', function(){
+//         //     return 'HOME PAGE DASHBOARD';
+//         // });
+
+//         // Route::get('/name1', function(){
+//         //     return 'Cliente 1';
+//         // });
+
+//         // Route::get('/name2', function(){
+//         //     return 'Cliente 2';
+//         // });
+
+//         // Route::get('/name3', function(){
+//         //     return 'Cliente 3';
+//         // });
+
+
+
+//     });
+
+// });
+
+//É POSSÍVEL CRIAR UMA ROTA ONDE PODEMOS INSERIR DIVERSOS METODOS APLICADOS PARA UM CONJUNTOS DE SUBROTAS
+Route::group([
+    'middleware' => [],
+    'prefix' => 'admin',
+    'namespace' => 'App\Http\Controllers\Admin'
+], function(){
+    Route::name('admin.')->group(function(){
 
                 Route::get('/name1', 'TesteController@teste')->name('name1');
 
@@ -144,31 +201,5 @@ Route::middleware([])->group(function (){
                 Route::get('/', function(){
                     return redirect()->route('name1');
                 })->name('home');
-
-            });
-
-        });
-
-
-
-        // Route::get('/', function(){
-        //     return 'HOME PAGE DASHBOARD';
-        // });
-
-        // Route::get('/name1', function(){
-        //     return 'Cliente 1';
-        // });
-
-        // Route::get('/name2', function(){
-        //     return 'Cliente 2';
-        // });
-
-        // Route::get('/name3', function(){
-        //     return 'Cliente 3';
-        // });
-
-
-
     });
-
 });
