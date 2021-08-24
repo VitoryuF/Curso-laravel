@@ -119,9 +119,7 @@ Route::get('/redirect3', function(){
 
 
 
-Route::get('/admin/login', function(){
-    return 'Login';
-})->name('login');
+
 Route::get('/new-url', function(){
     return 'New-Url1';
 })->name('old-url1');
@@ -184,7 +182,9 @@ O METODO NAMESPACE É USADO PARA LOCALIZAR FUNÇÕES E ARQUIVOS ExternalLinkProc
 // });
 
 
-
+Route::get('/admin/login', function(){
+    return 'Logiin';
+})->name('login');
 
 Route::get('/admin', 'App\Http\Controllers\Admin\TesteController@teste')->name('homepage');
 
