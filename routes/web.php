@@ -121,7 +121,7 @@ Route::get('/redirect3', function(){
 
 
 Route::get('/new-url', function(){
-    return 'New-Url1';
+    return 'New-Urlw1';
 })->name('old-url1');
 
 // É POSSÍVEL EFETUAR CONJUNTO DE ROTAS COM A MESMA COM OS MESMOS PARAMETROS E COMPONENTES REUNIDOS POR GRUPO.
