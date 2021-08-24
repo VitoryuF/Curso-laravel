@@ -44,11 +44,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 /*02 - Rota any feita para executar qualquer verbo http(tipo de rota)*/
 Route::any('/rota', function(){
     return 'any';
 });
+
 
 
 /*03 - Rota onde é possível executar verbos http selecionadas*/
@@ -105,7 +105,6 @@ Route::get('/redirect2',function(){
     return 'Redirect2';
 });
 
-
 /*View, que pode usar usado também de forma mais compacta, porém é recomendável que seja usado de modo compacto em views que sejam simples*/
 Route::view('/view', 'welcome');
 
@@ -116,16 +115,16 @@ Route::get('/redirect3', function(){
     return redirect()->Route('old-url1');
 });
 
-Route::get('/new-url', function(){
-    return 'New-Url';
-})->name('old-url1');
+
 
 
 
 Route::get('/admin/login', function(){
     return 'Login';
 })->name('login');
-
+Route::get('/new-url', function(){
+    return 'New-Url1';
+})->name('old-url1');
 
 // É POSSÍVEL EFETUAR CONJUNTO DE ROTAS COM A MESMA COM OS MESMOS PARAMETROS E COMPONENTES REUNIDOS POR GRUPO.
 /*
@@ -184,9 +183,14 @@ O METODO NAMESPACE É USADO PARA LOCALIZAR FUNÇÕES E ARQUIVOS ExternalLinkProc
 
 // });
 
+
+
+
+Route::get('/admin', 'App\Http\Controllers\Admin\TesteController@teste')->name('homepage');
+
 //É POSSÍVEL CRIAR UMA ROTA ONDE PODEMOS INSERIR DIVERSOS METODOS APLICADOS PARA UM CONJUNTOS DE SUBROTAS
 Route::group([
-    'middleware' => [],
+    'middleware' => ['auth'],
     'prefix' => 'admin',
     'namespace' => 'App\Http\Controllers\Admin'
 ], function(){
@@ -199,7 +203,7 @@ Route::group([
                 Route::get('/name3', 'TesteController@teste')->name('name3');
 
                 Route::get('/', function(){
-                    return redirect()->route('name1');
+                    return redirect()->route('admin.name1');
                 })->name('home');
     });
 });
