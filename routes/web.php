@@ -121,7 +121,7 @@ Route::get('/redirect3', function(){
 
 
 Route::get('/new-url', function(){
-    return 'New-Urlw1';
+    return 'New-Url1';
 })->name('old-url1');
 
 // É POSSÍVEL EFETUAR CONJUNTO DE ROTAS COM A MESMA COM OS MESMOS PARAMETROS E COMPONENTES REUNIDOS POR GRUPO.
@@ -183,7 +183,7 @@ O METODO NAMESPACE É USADO PARA LOCALIZAR FUNÇÕES E ARQUIVOS ExternalLinkProc
 
 
 Route::get('/admin/login', function(){
-    return 'Logiin';
+    return 'Login';
 })->name('login');
 
 Route::get('/admin', 'App\Http\Controllers\Admin\TesteController@teste')->name('homepage');
