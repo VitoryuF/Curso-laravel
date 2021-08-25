@@ -121,7 +121,7 @@ Route::get('/redirect3', function(){
 
 
 Route::get('/new-url', function(){
-    return 'New-Url1';
+    return 'New-Url';
 })->name('old-url1');
 
 // É POSSÍVEL EFETUAR CONJUNTO DE ROTAS COM A MESMA COM OS MESMOS PARAMETROS E COMPONENTES REUNIDOS POR GRUPO.
@@ -207,3 +207,19 @@ Route::group([
                 })->name('home');
     });
 });
+
+Route::prefix('/alunos')->group(function(){
+    Route::name('alunos.')->group(function () {
+        Route::delete('{id}/del', '\App\Http\Controllers\AlunoController@delete')->name('del');
+        Route::put('{id}/update', '\App\Http\Controllers\AlunoController@update')->name('update');
+        Route::post('/create', '\App\Http\Controllers\AlunoController@create')->name('create');
+        Route::get('/cadastro', '\App\Http\Controllers\AlunoController@cadastro')->name('cadastro');
+        Route::get('/{id}/edit', '\App\Http\Controllers\AlunoController@edit')->name('edit');
+
+        Route::get('{id}', '\App\Http\Controllers\AlunoController@show')->name('show');
+        Route::get('/', 'App\Http\Controllers\AlunoController@index')->name('index');
+    });
+});
+
+
+// A sigla CRUD representa os quatro verbos básicos de interação com o banco de dados: Create, Read, Update, Delete (Criar, Ler, Atualizar, Deletar)
