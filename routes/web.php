@@ -190,7 +190,7 @@ Route::get('/admin', 'App\Http\Controllers\Admin\TesteController@teste')->name('
 
 //É POSSÍVEL CRIAR UMA ROTA ONDE PODEMOS INSERIR DIVERSOS METODOS APLICADOS PARA UM CONJUNTOS DE SUBROTAS
 Route::group([
-    'middleware' => ['auth'],
+    'middleware' => [],
     'prefix' => 'admin',
     'namespace' => 'App\Http\Controllers\Admin'
 ], function(){
