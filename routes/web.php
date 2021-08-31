@@ -208,18 +208,22 @@ Route::group([
     });
 });
 
-Route::prefix('/alunos')->group(function(){
-    Route::name('alunos.')->group(function () {
-        Route::delete('{id}/del', '\App\Http\Controllers\AlunoController@delete')->name('del');
-        Route::put('{id}/update', '\App\Http\Controllers\AlunoController@update')->name('update');
-        Route::post('/create', '\App\Http\Controllers\AlunoController@create')->name('create');
-        Route::get('/cadastro', '\App\Http\Controllers\AlunoController@cadastro')->name('cadastro');
-        Route::get('/{id}/edit', '\App\Http\Controllers\AlunoController@edit')->name('edit');
+//Verbo http feito para comprimir conjuntos de controllers baseando-se em funcões que foram criadas dentro arquivo controller, bastando inserir no terminal "php artisan make:controller 'nomedoresource' --resource
+Route::resource('/alunos', '\App\Http\Controllers\AlunoController');
 
-        Route::get('{id}', '\App\Http\Controllers\AlunoController@show')->name('show');
-        Route::get('/', 'App\Http\Controllers\AlunoController@index')->name('index');
-    });
-});
+
+// Route::prefix('/alunos')->group(function(){
+//     Route::name('alunos.')->group(function () {
+//         Route::delete('{id}/del', '\App\Http\Controllers\AlunoController@delete')->name('del');
+//         Route::put('{id}/update', '\App\Http\Controllers\AlunoController@update')->name('update');
+//         Route::post('/create', '\App\Http\Controllers\AlunoController@create')->name('create');
+//         Route::get('/cadastro', '\App\Http\Controllers\AlunoController@cadastro')->name('cadastro');
+//         Route::get('/{id}/edit', '\App\Http\Controllers\AlunoController@edit')->name('edit');
+
+//         Route::get('{id}', '\App\Http\Controllers\AlunoController@show')->name('show');
+//         Route::get('/', 'App\Http\Controllers\AlunoController@index')->name('index');
+//     });
+// });
 
 
 // A sigla CRUD representa os quatro verbos básicos de interação com o banco de dados: Create, Read, Update, Delete (Criar, Ler, Atualizar, Deletar)
