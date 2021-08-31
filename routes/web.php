@@ -75,7 +75,7 @@ Route::get('/categorias/{cat}/1', function($cat){
 });
 
 
-/*04 - Rota onde é possível executar um parametro seguido de um subparametro odne este subparamentro é dinâmico, poderá ser inserido qualquer valor ou texto.
+/*04 - Rota onde é possível executar um parametro seguido de um subparametro onde este subparamentro é dinâmico, poderá ser inserido qualquer valor ou texto.
 O que poderia ser útil quando houve uma grande cadeia de subparametros
 E caso não seja inserido um subparametro, podemos deixar um valor padrão, basta adicionar '?'
  onde declaramos o subparametro e informar o valor default na function
