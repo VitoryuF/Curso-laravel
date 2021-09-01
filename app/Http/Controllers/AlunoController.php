@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Middleware;
 
 class Alunocontroller extends Controller
 {
-    protected $request;
-
     public function __construct(Request $request){
-        dd($request -> show);
+        // dd($request);
         $this->request = $request;
+        $this->Middleware('auth')->only([
+            'create', 'store'
+        ]);
     }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +23,7 @@ class Alunocontroller extends Controller
      */
     public function index()
     {
-        //
+        return view('teste');
     }
 
     /**
@@ -29,7 +33,7 @@ class Alunocontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('welcome');
     }
 
     /**
@@ -38,9 +42,10 @@ class Alunocontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        return view('welcome');
+
     }
 
     /**
