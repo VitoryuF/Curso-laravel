@@ -220,7 +220,7 @@ Route::prefix('/alunos')->group(function(){
         Route::get('/edit/{id}', '\App\Http\Controllers\AlunoController@edit')->name('edit');
 
         Route::get('show/{id}', '\App\Http\Controllers\AlunoController@show')->name('show');
-        Route::get('/', 'App\Http\Controllers\AlunoController@index')->name('index');
+        Route::get('/', 'App\Http\Controllers\AlunoController@index')->name('home');
     });
 });
 
