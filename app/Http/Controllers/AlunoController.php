@@ -10,9 +10,9 @@ class Alunocontroller extends Controller
     public function __construct(Request $request){
         // dd($request);
         $this->request = $request;
-        $this->Middleware('auth')->only([
-            'create', 'store'
-        ]);
+        // $this->Middleware('')->except([
+        //     'create', 'store'
+        // ]);
     }
 
 
@@ -23,7 +23,7 @@ class Alunocontroller extends Controller
      */
     public function index()
     {
-        return view('teste');
+
     }
 
     /**
