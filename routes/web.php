@@ -182,7 +182,7 @@ O METODO NAMESPACE É USADO PARA LOCALIZAR FUNÇÕES E ARQUIVOS ExternalLinkProc
 // });
 
 
-Route::get('/admin/login', function(){
+Route::get('/alunos/login', function(){
     return 'Login';
 })->name('login');
 
@@ -209,20 +209,20 @@ Route::get('/admin/login', function(){
 // });
 
 //Verbo http feito para comprimir conjuntos de controllers baseando-se em funcões que foram criadas dentro arquivo controller, bastando inserir no terminal "php artisan make:controller 'nomedoresource' --resource
-Route::resource('/alunos', '\App\Http\Controllers\AlunoController');
+// Route::resource('/alunos', '\App\Http\Controllers\AlunoController');
 
 
-// Route::prefix('/alunos')->group(function(){
-//     Route::name('alunos.')->group(function () {
-//         Route::delete('/del/{id}', '\App\Http\Controllers\AlunoController@delete')->name('del');
-//         Route::put('/update/{id}', '\App\Http\Controllers\AlunoController@update')->name('update');
-//         Route::post('/create', '\App\Http\Controllers\AlunoController@create')->name('create');
-//         Route::get('/edit/{id}', '\App\Http\Controllers\AlunoController@edit')->name('edit');
+Route::prefix('/alunos')->group(function(){
+    Route::name('alunos.')->group(function () {
+        Route::delete('/del/{id}', '\App\Http\Controllers\AlunoController@delete')->name('del');
+        Route::put('/update/{id}', '\App\Http\Controllers\AlunoController@update')->name('update');
+        Route::post('/create', '\App\Http\Controllers\AlunoController@create')->name('create');
+        Route::get('/edit/{id}', '\App\Http\Controllers\AlunoController@edit')->name('edit');
 
-//         Route::get('show/{id}', '\App\Http\Controllers\AlunoController@show')->name('show');
-//         Route::get('/', 'App\Http\Controllers\AlunoController@index')->name('index');
-//     });
-// });
+        Route::get('show/{id}', '\App\Http\Controllers\AlunoController@show')->name('show');
+        Route::get('/', 'App\Http\Controllers\AlunoController@index')->name('index');
+    });
+});
 
 
 // A sigla CRUD representa os quatro verbos básicos de interação com o banco de dados: Create, Read, Update, Delete (Criar, Ler, Atualizar, Deletar)
