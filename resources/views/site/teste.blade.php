@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head lang="pt-br">
-
+    <title>View Teste</title>
 </head>
 <body>
-    <h1>TESTE DE VIEW!</h1>
+
+    {{ $teste }}
 </body>
 </html>
