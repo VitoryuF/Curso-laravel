@@ -210,7 +210,6 @@ Route::get('/alunos/login', function(){
 
 //Verbo http feito para comprimir conjuntos de controllers baseando-se em funcões que foram criadas dentro arquivo controller, bastando inserir no terminal "php artisan make:controller 'nomedoresource' --resource
 Route::resource('/alunos', '\App\Http\Controllers\AlunoController');
-Route::resource('/products', '\App\Http\Controllers\ProductControler');
 
 
 // Route::prefix('/alunos')->group(function(){
