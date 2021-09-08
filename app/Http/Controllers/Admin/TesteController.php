@@ -10,4 +10,11 @@ class TesteController extends Controller
     public function teste(){
         return 'Teste Controller';
     }
+
+
+
+
+    public function show($id){
+        return "Mostrar $id.";
+    }
 }

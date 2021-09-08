@@ -186,27 +186,29 @@ Route::get('/alunos/login', function(){
     return 'Login';
 })->name('login');
 
-// Route::get('/admin', 'App\Http\Controllers\Admin\TesteController@teste')->name('homepage');
+Route::get('/admin', 'App\Http\Controllers\Admin\TesteController@teste')->name('homepage');
 
-// //É POSSÍVEL CRIAR UMA ROTA ONDE PODEMOS INSERIR DIVERSOS METODOS APLICADOS PARA UM CONJUNTOS DE SUBROTAS
-// Route::group([
-//     'middleware' => [],
-//     'prefix' => 'admin',
-//     'namespace' => 'App\Http\Controllers\Admin'
-// ], function(){
-//     Route::name('admin.')->group(function(){
+//É POSSÍVEL CRIAR UMA ROTA ONDE PODEMOS INSERIR DIVERSOS METODOS APLICADOS PARA UM CONJUNTOS DE SUBROTAS
+Route::group([
+    'middleware' => ['auth'],
+    'prefix' => 'admin',
+    'namespace' => 'App\Http\Controllers\Admin'
+], function(){
+    Route::name('admin.')->group(function(){
 
-//                 Route::get('/name1', 'TesteController@teste')->name('name1');
+                Route::get('/name1', 'TesteController@teste')->name('name1');
 
-//                 Route::get('/name2', 'TesteController@teste')->name('name2');
+                Route::get('/name2', 'TesteController@teste')->name('name2');
 
-//                 Route::get('/name3', 'TesteController@teste')->name('name3');
+                Route::get('/name3', 'TesteController@teste')->name('name3');
 
-//                 Route::get('/', function(){
-//                     return redirect()->route('admin.name1');
-//                 })->name('home');
-//     });
-// });
+                Route::get('/show/{id}', 'testeController@show')->name('show');
+
+                Route::get('/', function(){
+                    return redirect()->route('admin.name1');
+                })->name('home');
+    });
+});
 
 //Verbo http feito para comprimir conjuntos de controllers baseando-se em funcões que foram criadas dentro arquivo controller, bastando inserir no terminal "php artisan make:controller 'nomedoresource' --resource
 Route::resource('/alunos', '\App\Http\Controllers\AlunoController');

@@ -4,7 +4,7 @@
     <title>View Teste</title>
 </head>
 <body>
-
-    {{ $teste }}
+    {!! $teste !!}
+    {{ $texto }}
 </body>
 </html>

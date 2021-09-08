@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 
 class AlunoController extends Controller
 {
+    protected $request;
 
+    public function __construct(Request $request){
+        $this->request = $request;
+    }//o metodo construct recebe os dados que o cliente nos deu no Request informando no  "use Illuminate\Http\Reques;", em seguida insere este conteudo em uma variavel chamada $request "__construct(Request $request)" e dentro do metodo __construct inserimos este mesmo conteudo para outra variavel fora do metodo construct usando $this, onde a variavel $request que está fora do metodo agora também contém este conteudo
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,7 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        return view('turmas.pages.alunos.index');
     }
 
     /**
@@ -24,7 +28,16 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        //
+        $n = 151;
+        $test = '<h1>Teste de views</h1>';
+        return view('site.teste', [
+            'teste' => $test,
+            'texto' => $n
+        ]);
+        //É possível criar um return onde temos um vetor, neste vetor pode ter o conteúdo que deseja exibir na tela. Basta especificar o namespace da view -> 'site.teste', depois informar o indice com suas variaveis.
+
+
+
     }
 
     /**
@@ -33,9 +46,9 @@ class AlunoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+        return $request;
     }
 
     /**
@@ -46,7 +59,7 @@ class AlunoController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -57,7 +70,7 @@ class AlunoController extends Controller
      */
     public function edit($id)
     {
-        //
+        return "Editando valor $id.";
     }
 
     /**
@@ -67,9 +80,9 @@ class AlunoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        return $id;
     }
 
     /**
