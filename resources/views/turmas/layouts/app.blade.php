@@ -8,5 +8,10 @@
 </head>
 <body>
     @yield('content')
+    @yield('label-teste')
+
+
+
+    @yield('body-cjt-curso1')
 </body>
 </html>

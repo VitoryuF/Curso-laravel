@@ -10,7 +10,10 @@ class AlunoController extends Controller
 
     public function __construct(Request $request){
         $this->request = $request;
-    }//o metodo construct recebe os dados que o cliente nos deu no Request informando no  "use Illuminate\Http\Reques;", em seguida insere este conteudo em uma variavel chamada $request "__construct(Request $request)" e dentro do metodo __construct inserimos este mesmo conteudo para outra variavel fora do metodo construct usando $this, onde a variavel $request que está fora do metodo agora também contém este conteudo
+    }//o metodo construct recebe os dados que o cliente nos deu no Request informado no "use Illuminate\Http\Request;", em seguida insere este conteudo em uma variavel chamada $request "__construct(Request $request)" e dentro do metodo __construct inserimos este mesmo conteudo para outra variavel fora do metodo construct usando $this, onde a variavel $request que está fora do metodo agora também contém este conteudo.
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +21,7 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        return view('turmas.pages.alunos.index');
+        return view('turmas.pages.cursos.cjt-curso1');
     }
 
     /**

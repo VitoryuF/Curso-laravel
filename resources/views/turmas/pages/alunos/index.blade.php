@@ -9,6 +9,6 @@
 
 
 
-@section('Labelteste')
+@section('label-teste')
 <h1> Label Teste</h1>
 @endsection
