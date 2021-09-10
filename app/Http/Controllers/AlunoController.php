@@ -21,7 +21,19 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        return view('turmas.pages.cursos.cjt-curso1');
+        // return view('site.teste');
+        $title = 'Curso laravel';
+        $n = 151;
+        $test = '<h1>Teste de views</h1>';
+        return view('turmas.pages.alunos.index', [
+            'teste' => $test,
+            'texto' => $n,
+            'title' => $title
+        ]);
+    }
+
+    public function contato(){
+        return view('turmas.pages.alunos.index');
     }
 
     /**
@@ -31,11 +43,13 @@ class AlunoController extends Controller
      */
     public function create()
     {
+        $title = 'Curso laravel';
         $n = 151;
         $test = '<h1>Teste de views</h1>';
         return view('site.teste', [
             'teste' => $test,
-            'texto' => $n
+            'texto' => $n,
+            'title' => $title
         ]);
         //É possível criar um return onde temos um vetor, neste vetor pode ter o conteúdo que deseja exibir na tela. Basta especificar o namespace da view -> 'site.teste', depois informar o indice com suas variaveis.
 
