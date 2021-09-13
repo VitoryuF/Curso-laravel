@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    @extends('turmas.layouts.app')
+@extends('turmas.layouts.app')
+
+
 
 @section('title-cjt-curso1', 'Calculo de ações 03')
 @section('body-cjt-curso1')
@@ -43,5 +36,3 @@
     Resumão da coisa: como envolve dados passados e não futuro (lembrando que isso é especialmente importante quando falamos de crescimento dos lucros), o PEG Ratio não deve ser encarado 100% na teoria de que ação com PEG Ratio abaixo de 1 tá barato, e que acima está caro. Vale a pena flexibilizar um pouco e encarar com maior atenção empresas que tem o PEG Ratio baixo (assim como o caso do P/L).
 @endsection
 
-</body>
-</html>

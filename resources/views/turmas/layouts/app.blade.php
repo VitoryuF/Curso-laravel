@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@yield('title-cjt-curso1')@yield('title-index')</title>
 
-<title>{{$title}}</title>
 </head>
 <body>
+
+
+    {{-- INDEX --}}
     @yield('content')
     @yield('label-teste')
 
-    {{$teste}}
-
+    {{-- CONJUNTO DE CURSOS --}}
     @yield('body-cjt-curso1')
+
+
+
 </body>
 </html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\FuncCall;
 
 class AlunoController extends Controller
 {
@@ -22,19 +23,29 @@ class AlunoController extends Controller
     public function index()
     {
         // return view('site.teste');
-        $title = 'Curso laravel';
-        $n = 151;
+
+        $n = 122;
+        $vet = [1,2,3,4,5,6,7,8,9,10];
         $test = '<h1>Teste de views</h1>';
         return view('turmas.pages.alunos.index', [
             'teste' => $test,
-            'texto' => $n,
-            'title' => $title
+            'n' => $n,
+            'vet' => $vet,
+        //É possível criar um return onde temos um vetor, neste vetor pode ter o conteúdo que deseja exibir na tela. Basta especificar o namespace da view -> 'site.teste', depois informar o indice com suas variaveis.
+
         ]);
+
+
+    }
+
+    public Function cursos() {
+        return view('turmas.pages.cursos.cjt-curso1');
     }
 
     public function contato(){
         return view('turmas.pages.alunos.index');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -43,18 +54,10 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        $title = 'Curso laravel';
-        $n = 151;
         $test = '<h1>Teste de views</h1>';
         return view('site.teste', [
-            'teste' => $test,
-            'texto' => $n,
-            'title' => $title
+            'teste' => $test
         ]);
-        //É possível criar um return onde temos um vetor, neste vetor pode ter o conteúdo que deseja exibir na tela. Basta especificar o namespace da view -> 'site.teste', depois informar o indice com suas variaveis.
-
-
-
     }
 
     /**

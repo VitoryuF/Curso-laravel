@@ -5,6 +5,5 @@
 </head>
 <body>
     {!! $teste !!}
-    {{ $texto }}
 </body>
 </html>
