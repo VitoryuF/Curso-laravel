@@ -10,6 +10,6 @@ class ProductController extends Controller
     public function index(products $product){
         $product = $product -> all();
 
-        return view('painel.products.index')-> compact('product');
+        return view('painel.products.index', compact('product'));
     }
 }

@@ -27,13 +27,10 @@ class AlunoController extends Controller
         $n = 122;
         $vet = [1,2,3,4,5,6,7,8,9,10];
         $test = '<h1>Teste de views</h1>';
-        return view('turmas.pages.alunos.index', [
-            'teste' => $test,
-            'n' => $n,
-            'vet' => $vet,
+        return view('turmas.pages.alunos.index', compact($n,$vet, $test)
         //É possível criar um return onde temos um vetor, neste vetor pode ter o conteúdo que deseja exibir na tela. Basta especificar o namespace da view -> 'site.teste', depois informar o indice com suas variaveis.
 
-        ]);
+        );
 
 
     }
