@@ -7,9 +7,14 @@ use App\Models\painel\products;
 
 class ProductController extends Controller
 {
-    public function index(products $product){
-        $product = $product -> all();
+    private $products;
+    public function __construct(products $products){
+        $this->products = $products;
+    }
 
-        return view('painel.products.index', compact('product'));
+    public function index(){
+        $products = $this->products->all();
+
+        return view('painel.products.index', compact('products'));
     }
 }

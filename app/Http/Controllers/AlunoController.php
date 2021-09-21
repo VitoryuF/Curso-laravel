@@ -11,7 +11,8 @@ class AlunoController extends Controller
 
     public function __construct(Request $request){
         $this->request = $request;
-    }//o metodo construct recebe os dados que o cliente nos deu no Request informado no "use Illuminate\Http\Request;", em seguida insere este conteudo em uma variavel chamada $request "__construct(Request $request)" e dentro do metodo __construct inserimos este mesmo conteudo para outra variavel fora do metodo construct usando $this, onde a variavel $request que está fora do metodo agora também contém este conteudo.
+    }
+    //o metodo construct recebe os dados que o cliente nos deu no Request informado no "use Illuminate\Http\Request;", em seguida insere este conteudo em uma variavel chamada $request "__construct(Request $request)" e dentro do metodo __construct inserimos este mesmo conteudo para outra variavel fora do metodo construct usando $this, onde a variavel $request que está fora do metodo agora também contém este conteudo.
 
 
 
@@ -27,9 +28,8 @@ class AlunoController extends Controller
         $n = 122;
         $vet = [1,2,3,4,5,6,7,8,9,10];
         $test = '<h1>Teste de views</h1>';
-        return view('turmas.pages.alunos.index', compact($n,$vet, $test)
+        return view('turmas.pages.alunos.index', compact('n','vet', 'test')
         //É possível criar um return onde temos um vetor, neste vetor pode ter o conteúdo que deseja exibir na tela. Basta especificar o namespace da view -> 'site.teste', depois informar o indice com suas variaveis.
-
         );
 
 

@@ -8,17 +8,17 @@
 </head>
 <body>
 <h2>Lista de produtos</h2></br>
-    {{-- <table>
+    <table>
         <tr>
             <th>Nome</th>
             <th>Descrição</th>
         </tr>
-        @foreach($product as $product)
+        @foreach($products as $products)
         <tr>
-            <td>{{$product->nome}}</td>
-            <td>{{$product->desciption}}</td>
+            <td>{{$products->name}}</td>
+            <td>{{$products->desc}}</td>
         </tr>
         @endforeach
-    </table> --}}
+    </table>
 </body>
 </html>
