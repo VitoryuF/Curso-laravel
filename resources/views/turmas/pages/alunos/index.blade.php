@@ -53,11 +53,11 @@
 </br>
 
 {{-- Forelse feito para já contar o número de itens em um vetor e inclui-lo em uma variavel --}}
-@forelse ($vet as $item2)
+{{-- @forelse ($vet as $item2)
     <p>Forelse: {{$item2}}</p>
 @empty
     <p>Inexistente</p>
-@endforelse
+@endforelse --}}
 
 </br>
 </br>
@@ -69,4 +69,8 @@
 
 {{-- #11 Curso de Laravel 5.3 - Blade @stacks --}}
 
+@push('name')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
+
+@endpush

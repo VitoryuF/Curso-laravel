@@ -17,7 +17,7 @@
     {{-- CONJUNTO DE CURSOS --}}
     @yield('body-cjt-curso1')
 
-
+    @stack('script')
 
 </body>
 </html>

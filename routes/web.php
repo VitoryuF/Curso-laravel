@@ -124,7 +124,7 @@ Route::get('/new-url', function(){
     return 'New-Url';
 })->name('old-url1');
 
-// É POSSÍVEL EFETUAR CONJUNTO DE ROTAS COM A MESMA COM OS MESMOS PARAMETROS E COMPONENTES REUNIDOS POR GRUPO.
+// É POSSÍVEL EFETUAR CONJUNTO DE ROTAS COM OS MESMOS PARAMETROS E COMPONENTES REUNIDOS POR GRUPO.
 /*
 METODOS LISTADOS AQUI SÃO O, MIDDLEWARE, PREFIX, NAMESPACE E NAME.
 
@@ -211,7 +211,7 @@ Route::group([
 });
 
 //Verbo http feito para comprimir conjuntos de controllers baseando-se em funcões que foram criadas dentro arquivo controller, bastando inserir no terminal "php artisan make:controller 'nomedoresource' --resource
-Route::resource('/alunos', '\App\Http\Controllers\AlunoController');
+Route::resource('/aluenos', '\App\Http\Controllers\AlunoController');
 
 
 // Route::prefix('/alunos')->group(function(){
@@ -228,3 +228,15 @@ Route::resource('/alunos', '\App\Http\Controllers\AlunoController');
 
 
 // A sigla CRUD representa os quatro verbos básicos de interação com o banco de dados: Create, Read, Update, Delete (Criar, Ler, Atualizar, Deletar)
+
+
+// Route::group([
+//     'namespace' => 'App\Http\Controllers',
+//     'prefix' => 'painel'
+// ], function(){
+//     Route::get('/', 'ProductController@index')->name('index');
+// });
+
+Route::get('painel', function(){
+    return view('welcome');
+});
