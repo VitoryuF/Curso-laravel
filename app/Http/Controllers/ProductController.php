@@ -16,7 +16,9 @@ class ProductController extends Controller
     public function index(){
         $products = $this->products->all();
 
-        return view('painel.products.index', compact('products'));
+        $title = 'Home Page';
+
+        return view('painel.products.index', compact('products', 'title'));
     }
 
     public function teste(){
