@@ -17,8 +17,9 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name', 50)->nullable();
             $table->integer('number');
-            $table->boolean('active',['1','2']);
-            $table->string('image', 200);
+            $table->boolean('active'
+        );
+            $table->string('image', 200)->nullable;
             $table->enum('categoria', ['Banho', 'Eletro', 'Limpeza']);
             $table->text('desc');
             $table->timestamps();

@@ -235,8 +235,5 @@ Route::group([
     'prefix' => 'painel'
 ], function(){
     Route::get('/', 'ProductController@index')->name('index');
+    Route::get('/teste', 'ProductController@teste')->name('teste');
 });
-
-// Route::get('painel', function(){
-//     return view('welcome');
-// });
