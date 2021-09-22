@@ -98,16 +98,9 @@ class ProductController extends Controller
 
 
 
-        //deletar itens da tabela
-        // $prod = $this -> products -> where('id', 3);
-        // $delete = $prod->update([
-        //     'name'      => 'Ventila',
-        //     'number'    => 3010,
-        //     'active'    => '2',
-        //     'image'     => 'Imagem ventila',
-        //     'categoria' => 'Eletro',
-        //     'desc'      => 'Descrição Ventila'
-        // ]);
+        // deletar itens da tabela
+        // $prod = $this -> products -> where('id', 2);
+        // $delete = $prod->delete();
 
         // if($delete){
         //     return "Alteração do cadastro!";
