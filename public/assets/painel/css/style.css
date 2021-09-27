@@ -1,5 +1,31 @@
 .title-pg{
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 700;
     text-transform: uppercase;
+}
+
+.conteiner{
+    padding: 80px;
+}
+
+.action{
+    padding: 6px;;
+    color: #0785f3;
+    text-decoration: none;
+    margin: 0px 2px;
+    transition: 0.5s;
+}
+.action:hover{
+    color: #313131;
+}
+.edit{
+
+}
+.delete{
+    color: #da1717;
+
+}
+
+.bi-plus-square{
+   padding-bottom: 2px;
 }

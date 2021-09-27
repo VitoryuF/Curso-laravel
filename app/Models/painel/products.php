@@ -10,7 +10,7 @@ class products extends Model
     // use HasFactory;
 
 
-    //Lista de dados autorizados, necessário somnente para uma conexão na hora de inserir dados no banco usando metood create, até então somente para isso.
+    //Lista de dados autorizados, necessário somente para uma conexão na hora de inserir dados no banco usando metood create, até então somente para isso.
     protected $fillable = [
         'name', 'number', 'active', 'image', 'categoria', 'desc'
     ];
@@ -20,5 +20,8 @@ class products extends Model
     // protected $guarded = [
     //     'admin'
     // ];
+
+
+
 
 }

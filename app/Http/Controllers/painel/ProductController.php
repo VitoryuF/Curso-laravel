@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\painel;
 
-use Illuminate\Http\Request;
 use App\Models\painel\products;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Return_;
+use App\Http\Requests\painel\ProductFormRequest;
 
 class ProductController extends Controller
 {
+
     // Para ter informações sobre a variavel ou objeto usando dd($variavel/objeto)
     private $products;
     public function __construct(products $products){
@@ -61,12 +65,12 @@ class ProductController extends Controller
 
 ////Inserir dados na tabela criando a variavel $prod que está recebendo todo o conteudo, usando o metodo create, porém é necessário definir uma lista de colunas autorizadas a ser preenchidas pelo usuário no aquivo model, um meio de receber os dados do cliente com mais segurança.
         //  $insert = $this->products->create([
-        //     'name'      => 'Geladeira',
-        //     'number'    => 12,
-        //     'active'    => '1',
-        //     'image'     => 'Imagem4',
-        //     'categoria' => 'Eletro',
-        //     'desc'      => 'Descrição Geladeira'
+        //     'name'      => 'Toalha',
+        //     'number'    => 122,
+        //     'active'    => '2',
+        //     'image'     => 'Imagem Toalha',
+        //     'categoria' => 'Banho',
+        //     'desc'      => 'Descrição Toalha'
         // ]);
 
         // if($insert){
@@ -113,4 +117,69 @@ class ProductController extends Controller
     }
 
 
+    public function create(){
+        $categorias = ['Banho', 'Eletro', 'Limpeza', 'Pessoal'] ;
+        $title = 'Cadastro';
+        return view('painel.products.create', compact('title', 'categorias'));
+    }
+
+
+    public function store(ProductFormRequest $request){
+
+        $dataform = $request->all();
+        //acima a varialvel dataform recebe uma requisição (request do tipo post), vindo do formulario, usando o metodo all que engloba todos os dados que o formulario recebeu
+        $dataform['active'] = isset($dataform['active']) ? 1 : 0;
+
+        // Favor verificar porquer esta estrutura abaixo não funciona exatamente como o isset que se encontra acima
+        // if($dataform['active'] !== 1){
+        //     $dataform['active'] = 0;
+        // }else{
+        //     $dataform['active'] = 1;
+        // }24
+
+
+        // $messeges = [
+        //     'name.required' => 'Campo nome obrigatório!',
+        //     'number.required' => 'Campo número obrigatório!',
+        //     'number.numeric' => 'Campo deve obter somente números!',
+        //     'categoria.required' => 'Obrigatório escolher categoria!',
+        //     'desc.min:3|max:1000' => 'Descrição com mais de 3 caracteres obrigatória!'//mensagem desc não funciona.
+        // ];
+
+        //Validação de dados
+        // $this->validate($request, $this->products->rules);
+        // $validate = validator($dataform, $this->products->rules, $messeges);
+        // if($validate->fails()){
+        //     return redirect()
+        //         ->route('create')
+        //         ->withErrors($validate)
+        //         ->withInput();
+        // }
+
+
+        $create = $this->products->create($dataform);
+        //acima a variavel $create recebe o metodo create para adquirir os dados vindos da variavel $dataform inserindo-os no objeto products.
+
+
+        if($create){
+            return redirect()->route('index');//favor verificar porque não está sendo preciso informar o caminho da rota index!!
+        }else{
+            return redirect()->back();
+        }
+        //acima é feito o redirecionamento dependendo do resultado da criação do banco de dados
+
+
+
+
+
+        // Para diversos processos onde manipulamos dados é possível espicifica-los de maneira livre, primeiro como já vimos antes, podemos usar o metodo all() que seleciona todos os dados da request para manipularmos
+        // dd($request->all());
+
+        // Ou only, onde podemos selecionar quais dados queremos usando um array
+        // dd($request->only(['name', 'number']));
+
+        // Ou o except, onde podemos selecionar quais dados não irão ser selecionados
+        // dd($request->except(['name','number']));
+
+    }
 }

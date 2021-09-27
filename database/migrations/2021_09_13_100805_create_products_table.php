@@ -17,16 +17,15 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name', 50)->nullable();
             $table->integer('number');
-            $table->boolean('active'
-        );
-            $table->string('image', 200)->nullable;
+            $table->boolean('active');
+            $table->string('image', 200);
             $table->enum('categoria', ['Banho', 'Eletro', 'Limpeza']);
             $table->text('desc');
             $table->timestamps();
         });
     }
 
-    // Após criar o banco de dados o arquivo composer irá salvar toda a estrutar deste banco de dados, caso queira alterar o nome do banco de dados será preciso atualizar o registro do aquivo composer para que não haja incompatbilidade, acessando o terminal e digitando "composer dumb-autoload"
+    // Após criar o banco de dados o arquivo .env irá salvar toda a estrutar deste banco de dados, caso queira alterar o nome do banco de dados será preciso atualizar o registro do aquivo composer para que não haja incompatbilidade, acessando o terminal e digitando "composer dumb-autoload"
 
     //Mais informações acessar a aula 12 migrations nos últimos minutos da aula.
 

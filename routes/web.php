@@ -231,9 +231,14 @@ Route::resource('/alunos', '\App\Http\Controllers\AlunoController');
 
 
 Route::group([
-    'namespace' => 'App\Http\Controllers',
-    'prefix' => 'painel'
+    'namespace' => 'App\Http\Controllers\painel',
+    'prefix' => '/painel/produtos'
 ], function(){
     Route::get('/', 'ProductController@index')->name('index');
-    Route::get('/teste', 'ProductController@teste')->name('teste');
+    Route::get('teste', 'ProductController@teste')->name('teste');
+    Route::get('create', 'ProductController@create')->name('create');
+    Route::post('store', 'ProductController@store')->name('store');
+
+
+
 });
