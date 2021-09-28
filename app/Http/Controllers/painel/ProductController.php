@@ -17,6 +17,9 @@ class ProductController extends Controller
         $this->products = $products;
     }
 
+
+// ----------------------------------------------
+
     public function index(){
         $products = $this->products->all();
 
@@ -24,6 +27,10 @@ class ProductController extends Controller
 
         return view('painel.products.index', compact('products', 'title'));
     }
+
+
+
+// ----------------------------------------------
 
     public function teste(){
 
@@ -115,14 +122,17 @@ class ProductController extends Controller
         // }
 
     }
+// ----------------------------------------------
 
 
     public function create(){
         $categorias = ['Banho', 'Eletro', 'Limpeza', 'Pessoal'] ;
         $title = 'Cadastro';
-        return view('painel.products.create', compact('title', 'categorias'));
+        $botao = 'CADASTRAR';
+        return view('painel.products.create-edit', compact('title', 'botao',  'categorias'));
     }
 
+// ----------------------------------------------
 
     public function store(ProductFormRequest $request){
 
@@ -181,5 +191,27 @@ class ProductController extends Controller
         // Ou o except, onde podemos selecionar quais dados não irão ser selecionados
         // dd($request->except(['name','number']));
 
+
+    }
+// ----------------------------------------------
+
+    public function edit($id){
+    // se for possível usar find, use sempre
+    $products = $this->products->find($id);
+
+    $title = 'Editar cadastro';
+    $botao = 'ATUALIZAR';
+
+    $categorias = ['Banho', 'Eletro', 'Limpeza', 'Pessoal'] ;
+
+    return view('painel.products.create-edit', compact('title', 'botao', 'categorias',  'products'));
+
+    // Neste metodo usamos a mesma viw do met create, porem recuperando o conteudo id quem do objeto product, assim deixando o formulario já preenchido
+
+    }
+
+// ----------------------------------------------
+    public function update(request $request, $id){
+        return "atualizando... $id";
     }
 }

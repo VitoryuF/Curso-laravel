@@ -238,6 +238,8 @@ Route::group([
     Route::get('teste', 'ProductController@teste')->name('teste');
     Route::get('create', 'ProductController@create')->name('create');
     Route::post('store', 'ProductController@store')->name('store');
+    Route::get('{id}/edit', 'ProductController@edit')->name('edit');
+    Route::put('{id}/update', 'ProductController@update')->name('update');
 
 
 
