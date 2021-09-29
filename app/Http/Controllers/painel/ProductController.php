@@ -206,7 +206,7 @@ class ProductController extends Controller
 
     return view('painel.products.create-edit', compact('title', 'botao', 'categorias',  'products'));
 
-    // Neste metodo usamos a mesma viw do met create, porem recuperando o conteudo id quem do objeto product, assim deixando o formulario já preenchido
+    // Neste metodo usamos a mesma view do met create, porem recuperando o conteudo id do objeto product, assim deixando o formulario já preenchido
 
     }
 
