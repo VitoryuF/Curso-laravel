@@ -11,7 +11,14 @@
     href="{{url('assets/painel/css/style.css')}}"
     {{-- href="{{public_path('assets/painel/css/style.css')}}" --}}
     >
-
+    <style>
+        body{
+            background-color: #343a40;
+        }
+        h1{
+            color: #FFF;
+        }
+    </style>
 </head>
 <body>
 

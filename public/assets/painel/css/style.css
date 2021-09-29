@@ -9,9 +9,36 @@ body{
     text-transform: uppercase;
 }
 
+
+
 .conteiner{
     padding: 80px;
 }
+.conteiner input{
+    background-color: #313131;
+    color: #FFF;
+}
+.conteiner textarea{
+    background-color: #313131;
+    color: #FFF;
+    transition: 0.2s;
+}
+.conteiner textarea:hover{
+    background-color: #5e5e5e;
+    color: #FFF;
+}
+.conteiner select{
+    background-color: #313131;
+    color: #FFF;
+}
+
+.lab{
+    background-color: #313131;
+    color: #FFF;
+}
+
+
+
 
 .action{
     padding: 6px;;
@@ -34,5 +61,4 @@ body{
 .bi-plus-square{
    padding-bottom: 2px;
 }
-
 

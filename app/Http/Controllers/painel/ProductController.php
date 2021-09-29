@@ -211,7 +211,28 @@ class ProductController extends Controller
     }
 
 // ----------------------------------------------
-    public function update(request $request, $id){
-        return "atualizando... $id";
+    public function update(ProductFormRequest $request, $id){
+        //Agora que o metodo edit reuniu todos os dados na tabela o metodo update cuida de atualiza-los.
+
+
+        $dataform = $request->all();
+        //Criamos uma variável que recebe todas todos os dados digitados na tabela pelo metodo edit.
+
+        $dataform['active'] = isset($dataform['active']) ? 1 : 0;
+
+
+        $products = $this->products->find($id);
+        //Aqui selecionamos qual registro será atualizado especificando o id.
+
+        $update = $products->update($dataform);
+        //Aqui aplicamos a alteração com a variável $products informando o id, usando o helper update no conteudo que a vavriável dataform nos forneceu.
+
+        if($update){
+            return redirect()->route('index');//favor verificar porque não está sendo preciso informar o caminho da rota index!!
+        }else{
+            return redirect()->route('edit', $id)->with([
+                'errors' => 'Falha ao editar cadastro!'
+            ]);//Funcção
+        }
     }
 }

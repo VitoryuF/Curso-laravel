@@ -2,11 +2,12 @@
 
 @section('content')
 <h1 class="title-pg">Lista de produtos</h1>
-<table class="table table-striped">
+<table class="table table-dark table-hover">
         <tr>
         <th>Id</th>
         <th>Nome</th>
         <th>Descrição</th>
+        <th>Número</th>
         <th>Ações</th>
 
     </tr>
@@ -15,6 +16,7 @@
         <td>{{$products->id}}</td>
         <td>{{$products->name}}</td>
         <td>{{$products->desc}}</td>
+        <td>{{$products->number}}</td>
         <td>
             {{-- Tambem seria possível usando a url: --}}
             {{-- <a href="{{url("/painel/produtos/{$products->id}/edit")}}" class="action edit"> --}}

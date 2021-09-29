@@ -27,7 +27,7 @@
     </div>
 
     <div class="mb-3">
-    <label class="form-control">
+    <label class="form-control lab">
         <input type="checkbox" name="active" value="1"
 
         @if (isset($products) && ($products->active == 1))
