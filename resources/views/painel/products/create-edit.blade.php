@@ -2,8 +2,16 @@
 
 @section('content')
 {{-- Todo o css foi produzido por classes bootstrapp --}}
-<h1 class="title-pg">{{$title}}</h1>
-
+<h1 class="title-pg">
+    <a href="{{route('index')}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+        <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+      </svg> Voltar</a></br>
+    @if(isset($products))
+        {{$title}} {{$products->name}}
+    @else
+    {{$title}}
+    @endif
+</h1>
 
 {{-- Não seria somente trocar o metodo de post para put no form? --}}
 @if (isset($products))
@@ -36,15 +44,15 @@
 
     <div class="mb-3">
     <label class="form-control lab">
-        {!! Form::checkbox('active', null, ['class' => 'form-control']) !!}
+        {{-- {!! Form::checkbox('active[]', '', ['class' => 'form-control']) !!} --}}
 
-        {{-- <input type="checkbox" name="active" value="1"
+        <input type="checkbox" name="active" value="1"
 
         @if (isset($products) && ($products->active == 1))
         checked
         @endif
 
-        >  --}}
+        >
         Item ativo
 
     </label>
@@ -59,7 +67,7 @@
     </div>
 
     <div class="mb-3">
-    {!! Form::select('categoria', $categorias, '', ['class' => 'form-control', 'placeholder' => 'Cat']) !!}
+    {{-- {!! Form::select('categoria', $categorias, '', ['class' => 'form-control', 'placeholder' => 'Escolha a categoria:']) !!} --}}
 
 
     <select name="categoria" class="form-control">

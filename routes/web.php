@@ -240,6 +240,8 @@ Route::group([
     Route::post('store', 'ProductController@store')->name('store');
     Route::get('{id}/edit', 'ProductController@edit')->name('edit');
     Route::put('{id}/update', 'ProductController@update')->name('update');
+    Route::get('{id}/show','ProductController@show')->name('show');
+    Route::delete('{id}/destroy', 'ProductController@destroy')->name('destroy');
 
 
 

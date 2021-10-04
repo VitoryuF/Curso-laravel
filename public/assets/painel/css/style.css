@@ -2,12 +2,20 @@ body{
     background-color: gray-800;
 }
 
-
+.white-font{
+    color: #FFF;
+}
 .title-pg{
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
 }
+.title-pg a{
+    text-decoration: none;
+    color: rgb(198, 196, 196);
+
+}
+
 
 
 
@@ -42,7 +50,7 @@ body{
 
 .action{
     padding: 6px;;
-    color: #0785f3;
+    color: #a5cff5;
     text-decoration: none;
     margin: 0px 2px;
     transition: 0.5s;
@@ -54,7 +62,7 @@ body{
 
 }
 .delete{
-    color: #da1717;
+    color: #eef5e6;
 
 }
 

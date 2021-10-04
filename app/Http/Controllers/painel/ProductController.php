@@ -13,6 +13,9 @@ class ProductController extends Controller
 
     // Para ter informações sobre a variavel ou objeto usando dd($variavel/objeto)
     private $products;
+
+    private $pagination = 5;
+
     public function __construct(products $products){
         $this->products = $products;
     }
@@ -21,11 +24,16 @@ class ProductController extends Controller
 // ----------------------------------------------
 
     public function index(){
-        $products = $this->products->all();
+        // $products = $this->products->all();
 
         $title = 'Home Page';
+        $pagination = 3;
+        $products = $this->products->all();
+        // $teste = dd($products);
+        // Usando o helper paginate para informar a quantidade de itens que aparecem em uma página, feito para quando houver uma grande massa de dados
 
-        return view('painel.products.index', compact('products', 'title'));
+        return view('painel.products.index', compact('products', 'title', 'pagination'));
+
     }
 
 
@@ -127,7 +135,7 @@ class ProductController extends Controller
 
     public function create(){
         $categorias = ['Banho', 'Eletro', 'Limpeza', 'Pessoal'] ;
-        $title = 'Cadastro';
+        $title = 'NOVO CADASTRO';
         $botao = 'CADASTRAR';
         return view('painel.products.create-edit', compact('title', 'botao',  'categorias'));
     }
@@ -232,7 +240,38 @@ class ProductController extends Controller
         }else{
             return redirect()->route('edit', $id)->with([
                 'errors' => 'Falha ao editar cadastro!'
-            ]);//Funcção
+            ]);
         }
     }
+
+// ----------------------------------------------
+
+
+    public function show($id){
+        $products = $this->products->find($id);
+        $title = "Produto: $products->name";
+        return view('painel.products.show', compact(['products', 'title']));
+    }
+
+// ----------------------------------------------
+
+    public function destroy($id){
+
+        $products = $this->products->find($id);
+        //Aqui selecionamos qual registro será atualizado especificando o id.
+
+        $delete = $products->delete();
+        //Aqui apagamos os dados com a variável $products informando o id, usando o helper delete no conteudo que a vavriável dataform nos forneceu.
+
+        if($delete){
+            return redirect()->route('index');
+        }else{
+            return redirect()->route('show')->with([
+                'errors' => 'Falha ao deletar!'
+            ]);
+        }
+
+    }
+
+
 }
